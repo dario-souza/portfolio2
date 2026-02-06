@@ -93,22 +93,24 @@ const Skills = () => {
                     {categoryLabels[category as keyof typeof categoryLabels]}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  {skills.map((skill, skillIndex) => (
-                    <div
-                      key={skill.name}
-                      className="opacity-0 animate-fadeIn"
-                      style={{
-                        animationDelay: `${(categoryIndex * 0.1) + (skillIndex * 0.1)}s`,
-                        animationFillMode: 'forwards'
-                      }}
-                    >
-                      <SkillBar
-                        name={skill.name}
-                        level={skill.level}
-                      />
-                    </div>
-                  ))}
+                <CardContent className="pt-0">
+                  <div className="divide-y divide-border">
+                    {skills.map((skill, skillIndex) => (
+                      <div
+                        key={skill.name}
+                        className="opacity-0 animate-fadeIn"
+                        style={{
+                          animationDelay: `${(categoryIndex * 0.1) + (skillIndex * 0.1)}s`,
+                          animationFillMode: 'forwards'
+                        }}
+                      >
+                        <SkillBar
+                          name={skill.name}
+                          level={skill.level}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
